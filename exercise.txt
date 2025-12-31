@@ -1,0 +1,255 @@
+list
+---------------------------------------
+1) create a list to store your friends name in list (minimum 5)
+    - display whole list 
+    - display 1st friend 
+    - display last friend
+    - replace 1st friend with some other value 
+    - remove last value from list 
+    - display 1st 3 value in list 
+    - display last 3 value in list 
+    
+2) do following operation on list
+    create list of friend 
+    add 2 friend name at begining 
+    add 2 friends name at last 
+    create another list of relative 
+    append relative list into friend 
+    remove 1st item in friend 
+    remove friend whose name is samir 
+    clear friend list 
+
+3) tuple 
+    write a program to create tuple that all your family members name 
+    try to insert new value 
+    try to delete value 
+    try to change name 
+    print family 
+
+4) dictionary 
+    create dictionary of your college & store 
+        name, 
+        pricipal name 
+        establishment year 
+        area 
+        courses 
+    update courses name 
+    remove establishment year 
+    print dictionary 
+    
+5) Create Dictionary to store your college details like name, trust, pricipal, establishment year, address, city, courses etc 
+    print dictionary 
+    update city using update method 
+    add state using update methods 
+    display all keys using keys method 
+    display all values using values method 
+    remove state using pop method 
+    remove last item using pop item method 
+    remove all key value pair 
+    copy dictionary using copy method 
+
+6) create a python program to create 2 set. 
+    1 set has list of sports include in olympic 2016
+    2 set has list of sports include in olympic 2022
+
+    display both set 
+    findout unique sports in both set & display it 
+    findout common sports in both set & display it 
+    findout sports in olympic 2022 but not in 2016 & display it 
+    
+decision making excercise
+------------------------------------
+
+1) write a program to convert 24 hours time into 12 hours format time and display it with AM PM message. 
+input : 15 hours 
+output  3 PM 
+
+input : 11 hours 
+output  11 AM 
+
+input : 25 hours 
+output  invalid input 
+
+
+
+2) write a program to accept length and width of two different farm from user. and findout & display which farm is bigger 
+
+3) write a program to accept day of week (between 1 to 7) and then display name of day. (use simple if decision making)
+    input 1 : monday 
+    input 2 : tuesday 
+    input 7 : sunday 
+
+4) write a program to findout whether given year is millennium year or not. using if else decision making statements.
+
+5) write a program to findout elder brother from two brother age. 
+
+6) write a program to findout which is cheaper approach to buy IPhone 17 pro max.  consider use is going usa should he buy iphone from usa or from india. 
+
+7) write a program to decide which is better approach to go from ahmedabad to delhi. by car or by train. person has his own petrol car 
+
+4) 
+Write a program that takes a 5 subject marks from user. calculate total and average  and prints the grade using the following conditions:
+
+| Percentage | Grade |
+| ---------- | ----- |
+| 90–100     | A+    |
+| 80–89      | A     |
+| 70–79      | B     |
+| 60–69      | C     |
+| 50–59      | D     |
+| below 50   | Need to improve  |
+----------------------------------------
+
+1) write a program to accept 2 number from user. and accept choice for operations.
+operations will be addition, subtraction, multiplication, division
+do operation and display result as per user choice using switch statements.
+
+2) write a program to accept month number from user and display how many days month has. 
+    input : 1 output : this month has 31 days 
+    input : 4 output : this month has 30 days 
+
+3) write a program to findout whether given year is millenium year or not 
+
+4) write a program to accept birth day and birth month from user. decide zodiac sign from below table 
+    Aries: March 21–April 19
+    Taurus: April 20–May 20
+    Gemini: May 21–June 21
+    Cancer: June 22–July 22
+    Leo: July 23–August 22
+    Virgo: August 23–September 22
+    Libra: September 23–October 22
+    Scorpio: October 24–November 21
+    Sagittarius: November 22–December 21
+    Capricorn: December 22–January 19
+    Aquarius: January 20–February 18
+    Pisces: February 19–March 20
+
+while loop 
+---------------------
+1   100  95  90  85  80  75  70  65  60  ..... 0
+2   1    4   9   16  25  36  .... 1000
+3   1    -8   27  -64  .....    1000
+4   0    1   1   2   3   5   8   13  .... 100
+
+-------------------------
+5   write a program to findout only compound interest of given amount, rate, year 
+6   write a program to findout power of given base and exponent 
+7   write a program to findout whether given number is prime number or not 
+8   write a program to findout whether given number is perfect number or not 
+9   write a program to findout whether given number is palindrome 
+    input : 12321 output 12321 this is palindrome
+    input : 12345 output 54321 this is not palindrome
+10  write a program to display given amount into words 
+    input : 12345 output : one two three four five
+
+for loop 
+-------------------------------------------------------------------
+write a program to findout minimum marks & subject name and maximum marks and subject name from given dictionary 
+marks = {"Math": 88, "English": 75, "Science": 92, "History": 80, "Geography": 78, "Computer": 95}
+
+# write a program to count words, vowel, consent,digit and symbols in given string 
+
+nested loop 
+----------------------------
+1
+2 3
+4 5 6
+7 8 9 10
+
+5 4 3 2 1
+4 3 2 1
+3 2 1
+2 1
+1
+
+    *
+   **
+  ***
+ ****
+*****
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+    1
+   0 1
+  1 0 1
+ 0 1 0 1
+0 1 0 1 0
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
+
+* * * * * * *
+*           *
+*     *     *
+*           *
+* * * * * * *
+
+functions
+-----------------------------------------------
+1) create function that has arbitary arguments of string type and it display all strings into lower case.
+toLowerCase('Apple','bAnana','ManGO','KIWI','graps')
+output 
+    apple banana mango kiwi graps
+
+
+3) create function getInches which has meter, foot and inches as argument this function should return total inches. note foot and inches are default aguments whose default value should be zero 
+
+3.2) create function getGrams which has ton,kg, grams as argument this function should return total grams. note kg and grams are default aguments whose default value should be zero 
+
+
+2) create function that returns average of player score of all 11 players (arbitary arguments)
+
+
+4) create lambda function which return simple interest of given amount, rate, year 
+4) create lambda function which return compound interest of given amount, rate, year 
+
+6) create lambda function that return true if city passed as 1st argument exist in list passed argument as 2nd argument, if city does not exist return false 
+    isCityExist('Bhavnagar',['Bombay','Baroda','rajkot']) # false
+    isCityExist('rajkot',['Bombay','Baroda','rajkot']) # true 
+
+    
+7) use filter function in below list 
+    1) filter perfect numbers 
+    2) filter armstrong numbers 
+    3) filter both non perfect & non armstrong number 
+    [6, 28, 153, 370, 371, 407, 12, 45, 89, 100]
+
+8) use map function to findout binary of each number in list 
+    [10,20,40,80,100]
+
+recursion
+---------------------------------------
+1) write recursive function to convert decimal into binary 
+1) write recursive function to convert decimal into octal
+1) write recursive function to convert decimal into hexadecimal
+
+Module 
+1) create module which has below method. name of the module converter module    
+        inch to Foot 
+        inch to Meter 
+        inch to KM
+        km to Mile 
+    create other file to import and call above methods and display result 
+
+2) create folder storage in c drive. create file conversion.py file in it 
+    create functions into it 
+        toKB  converts given bytes into KB
+        toMB converts given bytes into  MB 
+        toGB converts given bytes into  GB 
+    set enviroment variable PYTHON_PATH as explained in class 
+    create file conversion_demo.py file 
+    import conversion file 
+    call functions into it 
+
