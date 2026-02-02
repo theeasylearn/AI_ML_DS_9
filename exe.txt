@@ -1,0 +1,68 @@
+1) write a program to calculate & display area of triangle using given base & height
+2) write a program to calculate & display area of circle using given radius 
+3) write a program to convert & display ceilcius into farenheit.
+4) write a program to convert & display Rupees into dollar 
+5) write a program to convert & display bytes into KiloBytes 
+6) write a program to convert & display bytes into Megabytes 
+
+inheritance 
+-----------------------------------------------------
+1) create class Animal that has following methods 
+    hunt
+    fight
+    all method will display suitable message 
+    
+    create class Bird that has following method 
+     fly
+     sing
+     nest
+     as well it also has method 
+     hunt 
+     fight 
+
+     do single level inheritance 
+
+2) create class Foot 
+    that has constructor to initilize instance variable inch 
+    has method to calculate and return foot 
+
+    create class Meter 
+    that has constructor to initilize instance variable inch 
+    has method to calculate and return foot 
+    has method to calculate and return meter 
+
+    do single level inheritance
+
+3) rewrite 1st exercise create class SuperBird to create multilevel inheritance
+        Dive()
+        zoom()
+        navigate()
+
+4) rewrite 2nd exercise create class KM 
+    that has constructor to initilize instance variable inch 
+    has method to calculate and return foot 
+    has method to calculate and return meter 
+    has method to calculate and return KM
+
+5) create example of hirarchical inheritance 
+    1) create class shape 
+        method that return getSquare which returns square of given number 
+    2) create class Circle 
+        has constructor
+        method that return area of circle 
+    3) create class Cyliender 
+        has constructor 
+        method that returns volume of Cyliender
+    
+6) create example of hybrid inheritance 
+    1) create class shape 
+        method that return getSquare which returns square of given number 
+    2) create class Circle 
+        has constructor
+        method that return area of circle 
+    3) create class Cyliender 
+        has constructor 
+        method that returns volume of Cyliender
+    4) create class Sphere 
+        has constructor
+        method returns volume of sphere 
