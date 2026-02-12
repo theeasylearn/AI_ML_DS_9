@@ -248,7 +248,7 @@ Module
         toKB  converts given bytes into KB
         toMB converts given bytes into  MB 
         toGB converts given bytes into  GB 
-    set enviroment variable PYTHON_PATH as explained in class 
+    set environment variable PYTHON_PATH as explained in class 
     create file conversion_demo.py file 
     import conversion file 
     call functions into it 
