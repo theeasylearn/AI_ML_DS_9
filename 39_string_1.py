@@ -24,3 +24,4 @@ sentence = "India is a country where India’s diversity, India’s culture, Ind
 print(sentence)
 print(sentence.replace('India','Bharat'))
 print(sentence.replace('India','Bharat',1)) #only 1st occurrence will be replaced
+
