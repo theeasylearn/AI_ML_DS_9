@@ -248,8 +248,15 @@ Module
         toKB  converts given bytes into KB
         toMB converts given bytes into  MB 
         toGB converts given bytes into  GB 
-    set environment variable PYTHON_PATH as explained in class 
-    create file conversion_demo.py file 
-    import conversion file 
-    call functions into it 
+
+package
+---------------------------------------------
+create package india. it should have 4 subpackage 
+    1) east 
+    2) west 
+    3) north 
+    4) south 
+
+    each package has file language.py (module). each module has method getState which returns state of particular zone as list 
+
 
