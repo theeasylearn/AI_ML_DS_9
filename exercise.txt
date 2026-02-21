@@ -163,10 +163,10 @@ nested loop
 1
 
     *
-   **
-  ***
- ****
-*****
+   
+  *
+ 
+*
 
     *
    * *
@@ -259,4 +259,86 @@ create package india. it should have 4 subpackage
 
     each package has file language.py (module). each module has method getState which returns state of particular zone as list 
 
+
+OOP 
+----------------------
+1. Create class Cylinder that stores the following information about a cylinder:
+
+   * radius
+   * height
+   * pi
+
+   These should be stored in instance variables.
+
+   All instance variables must be initialized using a constructor.
+
+   The class should contain the following methods:
+
+   * getCurvedSurfaceArea()
+     → Returns the curved surface area of the cylinder.
+     → Formula used: 2 × pi × radius × height
+
+   * getTotalSurfaceArea()
+     → Returns the total surface area of the cylinder.
+     → Formula used: 2 × pi × radius × (height + radius)
+
+   * getBaseArea()
+     → Returns the area of one circular base.
+     → Formula used: pi × radius²
+
+   * getVolume()
+     → Returns the volume of the cylinder.
+     → Formula used: pi × radius² × height
+
+All methods must return calculated values and must use the instance variables only.
+
+
+2 Create class Sphere that stores the following information about a sphere:
+   * radius
+   * pi
+
+   These should be stored in instance variables.
+
+   All instance variables must be initialized using a constructor.
+
+   The class should contain the following methods:
+
+   * getSurfaceArea()
+     → Returns the total surface area of the sphere.
+     → Formula used: 4 × pi × radius²
+
+   * getVolume()
+     → Returns the volume of the sphere.
+     → Formula used: (4 / 3) × pi × radius³
+
+   * getDiameter()
+     → Returns the diameter of the sphere.
+     → Formula used: 2 × radius
+
+All methods must return calculated values and must use the instance variables only.
+
+3. Create class Rectangle that stores the following information about a rectangle:
+
+   * length
+   * width
+
+   These should be stored in instance variables.
+
+   All instance variables must be initialized using a constructor.
+
+   The class should contain the following methods:
+
+   * getArea()
+     → Returns the area of the rectangle.
+     → Formula used: length × width
+
+   * getPerimeter()
+     → Returns the perimeter of the rectangle.
+     → Formula used: 2 × (length + width)
+
+   * getDiagonal()
+     → Returns the diagonal of the rectangle.
+     → Formula used: √(length² + width²)
+
+All methods must return calculated values and must use the instance variables only.
 
