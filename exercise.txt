@@ -342,3 +342,13 @@ All methods must return calculated values and must use the instance variables on
 
 All methods must return calculated values and must use the instance variables only.
 
+OOP 
+-----------------------------------------
+1) create class Animal which has following method 
+        Hunt
+        Run 
+        Play 
+    create class Unicorn which inherit Animal class 
+        Sing 
+        Fly
+        whatItCanDo 
