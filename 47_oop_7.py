@@ -1,4 +1,4 @@
-#example of inheritance (single level)
+#example of inheritance (hierarchical level)
 class Person:
     def walk(self):
         print("I can walk...")
@@ -7,11 +7,13 @@ class Person:
     def eat(self):
         print("I can eat")
 #inheritance 
+#derived class
 class Student(Person):
     def read(self):
         print("I can read")
     def write(self):
         print("I can write")
+    
     def whatICanDo(self):
         super().walk()
         super().talk()
@@ -19,7 +21,18 @@ class Student(Person):
         self.read()
         self.write()
 
-s1 = Student()
-s1.whatICanDo()
-s1.walk() #calling parent class method
-s1.read() #calling derived class method
+class Actor(Person):
+    def dance(self):
+        print("I can dance")
+    def acting(self):
+        print("I can act")
+    def whatICanDo(self):
+        super().walk()
+        super().talk()
+        super().eat()
+        self.dance()
+        self.acting()
+
+a1 = Actor()
+a1.whatICanDo()
+
