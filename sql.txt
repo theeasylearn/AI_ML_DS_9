@@ -1,0 +1,210 @@
+How to create table 
+create table product 
+(
+    id int primary key auto_increment, 
+    product_code char(8) unique not null, 
+    name varchar(32) not null, 
+    description varchar(256),  
+    category ENUM('Food','Toys','books','perfumes','flowers') not null,
+    brand varchar(32) default 'local',
+    price decimal(8,2) check (price>0),
+    cost_price float check (cost_price>0),
+    weight float default 0, 
+    stock int default 0, 
+    expiry_date date, 
+    is_active boolean 
+)
+1. INSERT – Adding New Records
+
+
+There are two main ways to insert data.
+
+Style 1 (Recommended – specify columns )
+Question: Insert a new pencil product into the products table.
+
+Explanation: Always better to list the columns you're inserting into — it's safer and clearer when the table structure changes later. Auto-increment primary keys (like id) can usually be set to NULL or omitted.
+
+INSERT INTO products (product_code, name, description, category, brand, price, cost_price, weight, stock_quantity, expiry_date, is_active)
+VALUES ('PNCL1001', 'Dark pencil', 'good for drawing', 'Stationery', 'Natraj', 100, 80, 1000, 50.99, '2025-12-15', 1);
+
+Question: Insert two notebook products at the same time.
+
+INSERT INTO products (product_code, name, description, category, brand, price, cost_price, weight)
+VALUES 
+    ('NTBK1002', 'NoteBook 100 pages', 'Standard notebook', 'Stationery', 'Classmate', 60, 45, 800),
+    ('NTBK1003', 'NoteBook 200 pages', '200 page 100 GSM notebook', 'Stationery', 'Navneet', 70.29, 50, 1200);
+
+Style 2 (less safe – values for all columns in table order)
+Question: Insert a ballpen assuming you know the exact column order of the table.
+
+INSERT INTO products 
+VALUES (NULL, 'BLPN1004', 'Rotomac Ballpen', 'dark blue pen', 'Stationery', 'Rotomac', 25, 15, 29.25, 200, NULL, 1, NOW(), 0);
+
+2. DELETE – Removing Rows
+
+Question: Delete every row in the products table.
+
+DELETE FROM products;
+
+Question: Delete the product whose id is 1.
+
+DELETE FROM products WHERE id = 1;
+
+Question: Delete all products with id between 10 and 20 inclusive.
+
+DELETE FROM products WHERE id BETWEEN 10 AND 20;
+-- or
+DELETE FROM products WHERE id >= 10 AND id <= 20;
+
+Question: Delete every product from the 'Navneet' brand.
+
+DELETE FROM products WHERE brand = 'Navneet';
+
+Question: Delete products whose product_code is PRD0001 or PRD0002.
+
+DELETE FROM products WHERE product_code IN ('PRD0001', 'PRD0002');
+
+Question: Remove all rows from the table and reset the auto-increment primary key back to 1.
+
+TRUNCATE TABLE products;
+
+3. UPDATE – Modifying Existing Rows
+
+Question: Increase the price of every product by 1.99 rupees.
+
+UPDATE products SET price = price + 1.99;
+
+Question: Change the price to 99 for the product with id = 1.
+
+UPDATE products SET price = 99 WHERE id = 1;
+
+Question: For the product with code 'PNCL1001', change its name to "Bharat Pencil", brand to "India", and price to 50.
+
+UPDATE products 
+SET name = 'Bharat Pencil', brand = 'India', price = 50 
+WHERE product_code = 'PNCL1001';
+
+4. Table Management
+
+Question: Rename the products table to product.
+
+RENAME TABLE products TO product;
+
+Question: Completely delete the product table (including all data and structure).
+
+DROP TABLE product;
+
+5. SELECT – Fetching Data
+
+Question: Retrieve all columns and all rows from the customers table.
+
+SELECT * FROM customers;
+
+Question: Get only customerNumber, customerName, city, state, country for every customer.
+
+SELECT customerNumber, customerName, city, state, country FROM customers;
+
+Question: Show the first 50 customers' name, city, state and country.
+
+SELECT customerName, city, state, country FROM customers LIMIT 0, 50;
+
+Question: Show the next 50 customers after the first 50.
+
+SELECT customerName, city, state, country FROM customers LIMIT 50, 50;
+
+Question: List all customers sorted alphabetically by their name.
+
+SELECT customerNumber, customerName, city, state, country 
+FROM customers 
+ORDER BY customerName ASC;
+
+Question: Show customers sorted first by country, then by state, then by city — all in ascending order.
+
+SELECT customerNumber, customerName, city, state, country 
+FROM customers 
+ORDER BY country, state, city;
+
+Question: Show customers from the USA only.
+
+SELECT * FROM customers WHERE country = 'USA';
+
+Question: List customers whose creditLimit is less than 500,000, sorted from lowest to highest credit limit.
+
+SELECT customerNumber, customerName, creditLimit, city, country 
+FROM customers 
+WHERE creditLimit < 500000 
+ORDER BY creditLimit ASC;
+
+Question: Show customers from USA, France, Australia or Japan (use the cleaner IN syntax).
+
+SELECT customerNumber, customerName, country 
+FROM customers 
+WHERE country IN ('USA', 'France', 'Australia', 'Japan');
+
+Question: Show only unique country names, sorted alphabetically.
+
+SELECT DISTINCT country FROM customers ORDER BY country;
+
+Question: Show customers who are NOT from USA, France, Australia, or Japan, sorted by country name.
+
+SELECT customerNumber, customerName, country 
+FROM customers 
+WHERE country NOT IN ('USA', 'France', 'Australia', 'Japan') 
+ORDER BY country;
+
+6. LIKE Operator – Pattern Matching
+
+Question: Find all customers whose name starts with the letter 'A'.
+
+SELECT customerNumber, customerName, country 
+FROM customers 
+WHERE customerName LIKE 'A%';
+
+Question: Find all customers whose name ends with the word 'Inc'.
+
+SELECT customerNumber, customerName 
+FROM customers 
+WHERE customerName LIKE '%Inc';
+
+Question: Find products whose name contains the word 'pencil' anywhere in the name.
+
+SELECT productCode, productName, brand 
+FROM products 
+WHERE productName LIKE '%pencil%';
+
+Question: Find all product codes that start with 'PNCL' followed by any 4 characters.
+
+SELECT productCode, name 
+FROM products 
+WHERE productCode LIKE 'PNCL____';
+
+Question: Find customers whose city name has exactly 7 characters.
+
+SELECT customerName, city 
+FROM customers 
+WHERE city LIKE '_______';
+
+Question: Find products whose description contains either 'page' or 'pages'.
+
+SELECT productCode, name, description 
+FROM products 
+WHERE description LIKE '%page%' 
+   OR description LIKE '%pages%';
+
+Question: Find customers from cities that start with 'San' (San Francisco, San Diego, etc.).
+
+SELECT customerName, city, country 
+FROM customers 
+WHERE city LIKE 'San%';
+
+Question: Find all products where the brand name is exactly 7 characters long.
+
+SELECT brand, productName 
+FROM products 
+WHERE brand LIKE '_______';
+
+Question: Show all customers whose name does NOT contain the word 'Stores'.
+
+SELECT customerName, country 
+FROM customers 
+WHERE customerName NOT LIKE '%Stores%';
