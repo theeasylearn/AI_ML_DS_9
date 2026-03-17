@@ -14,6 +14,7 @@ create table product
     expiry_date date, 
     is_active boolean 
 )
+
 1. INSERT – Adding New Records
 
 
