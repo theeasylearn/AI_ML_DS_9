@@ -42,48 +42,41 @@ INSERT INTO products
 VALUES (NULL, 'BLPN1004', 'Rotomac Ballpen', 'dark blue pen', 'Stationery', 'Rotomac', 25, 15, 29.25, 200, NULL, 1, NOW(), 0);
 
 2. DELETE – Removing Rows
-
+Syntax : delete from <tablename> [where <condition>]
 Question: Delete every row in the products table.
-
-DELETE FROM products;
-
+DELETE FROM PRODUCT 
 Question: Delete the product whose id is 1.
 
-DELETE FROM products WHERE id = 1;
+delete from product where id = 1
 
 Question: Delete all products with id between 10 and 20 inclusive.
+delete from product where id>=10 and id<=20
+delete from product where id between 10 and 20 
 
-DELETE FROM products WHERE id BETWEEN 10 AND 20;
--- or
-DELETE FROM products WHERE id >= 10 AND id <= 20;
 
 Question: Delete every product from the 'Navneet' brand.
+delete from product where brand='navneet'
 
-DELETE FROM products WHERE brand = 'Navneet';
-
-Question: Delete products whose product_code is PRD0001 or PRD0002.
-
-DELETE FROM products WHERE product_code IN ('PRD0001', 'PRD0002');
+Question: Delete products whose product_code is FD000001 or FD000002.
+delete from product where product_code = 'FD000001' or product_code = 'FD000002'
+delete from product where product_code in ('FD000001','FD000002')
 
 Question: Remove all rows from the table and reset the auto-increment primary key back to 1.
 
-TRUNCATE TABLE products;
+TRUNCATE TABLE <tablename>;
+truncate table product 
 
 3. UPDATE – Modifying Existing Rows
+update <tablename> set field-name-1=value-1, field-name-2=value-2, field-name-3=value-3 ... [where <condition>]
 
 Question: Increase the price of every product by 1.99 rupees.
-
-UPDATE products SET price = price + 1.99;
+update product set price=price + 1.99 
 
 Question: Change the price to 99 for the product with id = 1.
 
-UPDATE products SET price = 99 WHERE id = 1;
 
 Question: For the product with code 'PNCL1001', change its name to "Bharat Pencil", brand to "India", and price to 50.
 
-UPDATE products 
-SET name = 'Bharat Pencil', brand = 'India', price = 50 
-WHERE product_code = 'PNCL1001';
 
 4. Table Management
 
