@@ -80,125 +80,132 @@ Question: For the product with code 'PNCL1001', change its name to "Bharat Penci
 
 4. Table Management
 
-Question: Rename the products table to product.
+Question: Rename the product table to temp.
 
-RENAME TABLE products TO product;
+RENAME TABLE product TO temp;
 
 Question: Completely delete the product table (including all data and structure).
 
 DROP TABLE product;
 
-5. SELECT – Fetching Data
+how to fetch data from table?
+ to fetch data from one or more table, we use select sql statement 
+ syntax 
+   SELECT * | column_list FROM table_name [WHERE condition] [GROUP BY column_name] [HAVING condition] [ORDER BY column_name ASC|DESC] [LIMIT number, offset];
 
-Question: Retrieve all columns and all rows from the customers table.
+-------------------------------------------------------------------------------------------
+1 Select all fields and all rows from customers table. 
+SQL : select * from customers
 
-SELECT * FROM customers;
+2 Select customerNumber, customerName, city, state, country of all customers from customers table. 
+SQL : select customerNumber,customerName,city,state,country from customers
 
-Question: Get only customerNumber, customerName, city, state, country for every customer.
+3 Select first 50 customers' name, city, state and country from customers. 
+SQL : select customerName,city,state,country from customers limit 0,50
 
-SELECT customerNumber, customerName, city, state, country FROM customers;
+4 Select next 50 customers' name, city, state and country from customers. 
+SQL :  select customerName,city,state,country from customers limit 50,50
 
-Question: Show the first 50 customers' name, city, state and country.
+5 Select next 100 customers' name, city, state and country from customers. 
+SQL : select customerName,city,state,country from customers limit 100,100
 
-SELECT customerName, city, state, country FROM customers LIMIT 0, 50;
 
-Question: Show the next 50 customers after the first 50.
 
-SELECT customerName, city, state, country FROM customers LIMIT 50, 50;
+6 Select customerNumber, customerName, city, state, country of all customers from customers table in name wise ascending order. 
+SQL :
+7 Select customerNumber, customerName, city, state, country of all customers from customers table display them country wise, then state wise and then city wise in ascending order. 
+SQL :
+8 Select customerNumber, customerName, city, state, country, creditLimit of all customers from customers table and display it creditLimit wise in descending order. 
+SQL :
+9 Fetch Namewise 1st 50 customer's customerNumber, customerName. 
+SQL :
 
-Question: List all customers sorted alphabetically by their name.
+10 Select customerNumber, customerName, city, state, country, creditLimit of those customers whose country is USA. 
 
-SELECT customerNumber, customerName, city, state, country 
-FROM customers 
-ORDER BY customerName ASC;
+11 Select customerNumber, customerName, city, state, country, creditLimit of those customers whose creditLimit is below 500000, display them creditLimit wise ascending order. 
 
-Question: Show customers sorted first by country, then by state, then by city — all in ascending order.
+12 Select customerNumber, customerName, country of those customers whose country is USA or France. 
 
-SELECT customerNumber, customerName, city, state, country 
-FROM customers 
-ORDER BY country, state, city;
+13 Select customerNumber, customerName, country of those customers whose country is USA or France or Australia or Japan or Italy. 
 
-Question: Show customers from the USA only.
+14 Select customerNumber, customerName, creditLimit of those customers whose creditLimit is between 100000 to 999999, display them in descending order of creditLimit. 
 
-SELECT * FROM customers WHERE country = 'USA';
+15 Select customerNumber, customerName, city, state, country from customers where country is USA and state is CA and city is San Francisco. 
 
-Question: List customers whose creditLimit is less than 500,000, sorted from lowest to highest credit limit.
+16 Select customerNumber, customerName, city, state, country, creditLimit from customers where country is USA and state is CA and city is Delhi. 
 
-SELECT customerNumber, customerName, creditLimit, city, country 
-FROM customers 
-WHERE creditLimit < 500000 
-ORDER BY creditLimit ASC;
+17 Select only unique country from customers table and display it in ascending order. 
 
-Question: Show customers from USA, France, Australia or Japan (use the cleaner IN syntax).
+18 Select customerNumber, customerName, country of those customers who are not from USA, France, Australia, Japan & Italy and display them in ascending order of country name. 
 
-SELECT customerNumber, customerName, country 
-FROM customers 
-WHERE country IN ('USA', 'France', 'Australia', 'Japan');
+19 Select customerNumber, customerName from customers table of those customers whose name has wheels at any position. 
 
-Question: Show only unique country names, sorted alphabetically.
+20 Select customerNumber, customerName from customers table of those customers whose name has wheels at end. 
 
-SELECT DISTINCT country FROM customers ORDER BY country;
+21 Select customerNumber, customerName from customers table of those customers whose name has wheels at start. 
 
-Question: Show customers who are NOT from USA, France, Australia, or Japan, sorted by country name.
+22 Select payments details (all fields) from payments table of those payments received on 17 Dec 2004. 
 
-SELECT customerNumber, customerName, country 
-FROM customers 
-WHERE country NOT IN ('USA', 'France', 'Australia', 'Japan') 
-ORDER BY country;
+23 Select payments details (all fields) from payments table of those payments received in Dec 2004. 
 
-6. LIKE Operator – Pattern Matching
+24 Select payments details (all fields) from payments table of those payments received in 2004. 
 
-Question: Find all customers whose name starts with the letter 'A'.
+25 Select customerNumber, paymentDate and amount from payment table display paymentDate in Indian format including day name of week. 
 
-SELECT customerNumber, customerName, country 
-FROM customers 
-WHERE customerName LIKE 'A%';
+26 Fetch total payment amount from payments. 
 
-Question: Find all customers whose name ends with the word 'Inc'.
+27 Fetch minimum and maximum amount from payments. 
 
-SELECT customerNumber, customerName 
-FROM customers 
-WHERE customerName LIKE '%Inc';
+28 Fetch average payment amount from payments. 
 
-Question: Find products whose name contains the word 'pencil' anywhere in the name.
+29 Count number of customers. 
 
-SELECT productCode, productName, brand 
-FROM products 
-WHERE productName LIKE '%pencil%';
+30 Fetch count of customers who are from USA. 
 
-Question: Find all product codes that start with 'PNCL' followed by any 4 characters.
+31 Fetch total payment amount of customers whose customerNumber is 112. 
 
-SELECT productCode, name 
-FROM products 
-WHERE productCode LIKE 'PNCL____';
+32 Fetch total payment amount received in year 2004. 
 
-Question: Find customers whose city name has exactly 7 characters.
+33 Fetch average payment amount of customer whose customerNumber is 114. 
 
-SELECT customerName, city 
-FROM customers 
-WHERE city LIKE '_______';
+34 Fetch total payments amount paid by each and every customer. 
 
-Question: Find products whose description contains either 'page' or 'pages'.
+35 Fetch number of payments received by each and every customer. 
 
-SELECT productCode, name, description 
-FROM products 
-WHERE description LIKE '%page%' 
-   OR description LIKE '%pages%';
+36 Fetch maximum payment amount received by each and every customer. 
 
-Question: Find customers from cities that start with 'San' (San Francisco, San Diego, etc.).
+37 Fetch number of customers from each country and display them in descending order. 
 
-SELECT customerName, city, country 
-FROM customers 
-WHERE city LIKE 'San%';
+38 Fetch number of orders given by each and every customers and display them in descending order. 
 
-Question: Find all products where the brand name is exactly 7 characters long.
+39 Fetch number of employees in each office. 
 
-SELECT brand, productName 
-FROM products 
-WHERE brand LIKE '_______';
+40 Fetch top 5 customers number order wise. 
 
-Question: Show all customers whose name does NOT contain the word 'Stores'.
+41 Fetch customerNumber wise top 5 payments. 
 
-SELECT customerName, country 
-FROM customers 
-WHERE customerName NOT LIKE '%Stores%';
+42 Fetch customer wise total payment amount of those customers whose total payment amount is above 1 lakh and display it in descending order. 
+
+43 Fetch customer wise number of payments made of those customers who have made more than 3 payments and display in descending order. 
+
+44 Fetch country name and number of customers from each country where there are more than 5 customers. 
+
+45 Fetch customerNumber, customerName, city, state, country and orderNumber, orderDate, status of order, display it customerNumber wise ascending order. 
+
+46 Fetch customerNumber, customerName, city, state, country and paymentDate, amount of each and every customer and display them payment date wise. 
+
+47 Fetch productCode, productName, quantityOrdered, priceEach, orderNumber, orderDate, status of each and every order. 
+
+48 Fetch each order's orderNumber, customerNumber and total order value. 
+
+49 Fetch customerNumber, customerName who have never given any order. 
+
+50 Fetch productCode and ProductName of those product which is never ordered. 
+
+51 Fetch customerNumber and customerName who have never given any payments. 
+
+52 Fetch those office detail from office table in which no employees are working. 
+
+53 Fetch possibilities where each and every employees can work in each office. 
+
+54 Find actual customer number and name who have not given payments. 
