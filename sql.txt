@@ -112,29 +112,52 @@ SQL : select customerName,city,state,country from customers limit 100,100
 
 
 6 Select customerNumber, customerName, city, state, country of all customers from customers table in name wise ascending order. 
-SQL :
+SQL : select customerNumber, customerName, city, state, country from customers order by customerName 
+
 7 Select customerNumber, customerName, city, state, country of all customers from customers table display them country wise, then state wise and then city wise in ascending order. 
-SQL :
+SQL : select customerNumber, customerName, city, state, country from customers order by country, state, city 
+
 8 Select customerNumber, customerName, city, state, country, creditLimit of all customers from customers table and display it creditLimit wise in descending order. 
-SQL :
-9 Fetch Namewise 1st 50 customer's customerNumber, customerName. 
-SQL :
+SQL : select customerNumber, customerName, city, state, country, creditLimit from customers order by creditLimit desc 
 
-10 Select customerNumber, customerName, city, state, country, creditLimit of those customers whose country is USA. 
+9 Fetch Name wise 1st 50 customer's customerNumber & customerName. 
+SQL : select customerNumber, customerName from customers order by customerName limit 0,50
 
-11 Select customerNumber, customerName, city, state, country, creditLimit of those customers whose creditLimit is below 500000, display them creditLimit wise ascending order. 
+9.2 fetch top 10 most recent order's Number and orderDate and customerNumber 
+select orderNumber, orderDate, customerNumber from orders order by orderNumber desc limit 0,10
+
+9.3 fetch top 5 payments amount and customerNumber 
+select customerNumber,amount from payments order by amount desc limit 0,5
+
+9.5 fetch top 5 most expensive product code and name and stock 
+select productCode,productName,buyPrice from products order by buyPrice desc limit 0,5
+
+
+10 Select customerNumber, customerName, country of those customers whose country is USA. 
+SQL :  select customerNumber,customerName,country from customers where country = 'usa'
+
+11 Select customerNumber, customerName, creditLimit of those customers whose creditLimit is below 500000, display them creditLimit wise ascending order. 
+SQL : select customerNumber,customerName,creditLimit from customers where creditLimit<500000 order by creditLimit asc 
 
 12 Select customerNumber, customerName, country of those customers whose country is USA or France. 
+SQL : select customerNumber, customerName, country from customers where country = 'usa' or country='france' 
 
 13 Select customerNumber, customerName, country of those customers whose country is USA or France or Australia or Japan or Italy. 
+SQL : select customerNumber, customerName, country from customers where country in ('usa','france','australia','japan','itlay') 
 
 14 Select customerNumber, customerName, creditLimit of those customers whose creditLimit is between 100000 to 999999, display them in descending order of creditLimit. 
+SQL : select customerNumber, customerName, creditLimit from customers where creditLimit>=100000 and creditLimit<=999999 order by creditLimit desc 
 
 15 Select customerNumber, customerName, city, state, country from customers where country is USA and state is CA and city is San Francisco. 
 
+SQL : select customerNumber,customerName,city,state,country from customers where country='usa' and state='ca' and city='San Francisco'
+
 16 Select customerNumber, customerName, city, state, country, creditLimit from customers where country is USA and state is CA and city is Delhi. 
 
+SQL : select customerNumber,customerName,city,state,country from customers where country='usa' and state='ca' and city='Delhi'
+
 17 Select only unique country from customers table and display it in ascending order. 
+SQL : SELECT distinct country from customers order by country
 
 18 Select customerNumber, customerName, country of those customers who are not from USA, France, Australia, Japan & Italy and display them in ascending order of country name. 
 
