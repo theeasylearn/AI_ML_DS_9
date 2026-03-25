@@ -160,34 +160,81 @@ SQL : select customerNumber,customerName,city,state,country from customers where
 SQL : SELECT distinct country from customers order by country
 
 18 Select customerNumber, customerName, country of those customers who are not from USA, France, Australia, Japan & Italy and display them in ascending order of country name. 
+SQL : SELECT customerNumber, customerName, country from customers where country not in ('usa','france','australia','japan','itlay') order by country 
 
-19 Select customerNumber, customerName from customers table of those customers whose name has wheels at any position. 
+19 Select customerNumber, customerName from customers table of those customers whose name has wheels at any position (begining, in between, last). 
+SQL : select customerNumber,customerName from customers where customerName like '%wheels%'
 
 20 Select customerNumber, customerName from customers table of those customers whose name has wheels at end. 
+SQL select customerNumber,customerName from customers where customerName like '%wheels'
 
 21 Select customerNumber, customerName from customers table of those customers whose name has wheels at start. 
+SQL select customerNumber,customerName from customers where customerName like 'wheels%'
 
 22 Select payments details (all fields) from payments table of those payments received on 17 Dec 2004. 
+SQL select * from payments where paymentDate='2004-12-17'
 
 23 Select payments details (all fields) from payments table of those payments received in Dec 2004. 
+select * from payments where paymentDate>='2004-12-01' and paymentDate<='2004-12-31' order by paymentDate desc;
+
 
 24 Select payments details (all fields) from payments table of those payments received in 2004. 
+select * from payments where paymentDate>='2004-01-01' and paymentDate<='2004-12-31' order by paymentDate desc;
 
-25 Select customerNumber, paymentDate and amount from payment table display paymentDate in Indian format including day name of week. 
+
+25 Select customerNumber, paymentDate and amount from payment table, display paymentDate in Indian format including day name of week. 
+select customerNumber, date_format(paymentDate,'%W %d-%m-%Y') as  paymentDate from payments;
+
+Aggregate function in mysql 
+
+what is Aggregate function?
+function which has numeric field as argument and return single value after processing field is called numeric function 
+
+1. SUM()
+
+Purpose: To calculate the total sum of numeric values in a column.
+Use When: You want to add up values (e.g., total sales, total salary, total quantity).
+
+2. MIN()
+
+Purpose: To find the smallest (minimum) value in a column.
+Use When: You need the lowest value (e.g., lowest price, earliest date, smallest ID).
+
+3. MAX()
+
+Purpose: To find the largest (maximum) value in a column.
+Use When: You need the highest value (e.g., highest salary, latest date, maximum price).
+
+4. AVG()
+
+Purpose: To calculate the average (mean) value of numeric data.
+Use When: You want to find the average of values (e.g., average salary, average marks, average price).
+
+5. COUNT(*)
+
+Purpose: To count the total number of rows in the table/result.
+Use When: You just want to know how many records exist (including rows with NULL values).
 
 26 Fetch total payment amount from payments. 
+select sum(amount) as total from payments 
 
 27 Fetch minimum and maximum amount from payments. 
+select min(amount) as minimum , max(amount) as maximum from payments 
 
 28 Fetch average payment amount from payments. 
+select round(avg(amount),2) as average_payment from payments;
 
 29 Count number of customers. 
+select count(*) from customers
 
 30 Fetch count of customers who are from USA. 
+select count(*) as count from customers where country='usa';
 
 31 Fetch total payment amount of customers whose customerNumber is 112. 
+select sum(amount) as total from payments where customerNumber = 112
 
 32 Fetch total payment amount received in year 2004. 
+select sum(amount) as total from payments where paymentDate>='2004-01-01' and paymentDate<='2004-12-31'
 
 33 Fetch average payment amount of customer whose customerNumber is 114. 
 
