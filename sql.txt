@@ -237,28 +237,52 @@ select sum(amount) as total from payments where customerNumber = 112
 select sum(amount) as total from payments where paymentDate>='2004-01-01' and paymentDate<='2004-12-31'
 
 33 Fetch average payment amount of customer whose customerNumber is 114. 
+select round(avg(amount),2) as average_payment from payments where customerNumber = 114
+
+group by 
+--------------------------------------
+group by clause is used with Aggregate function to generate group total on field value which repetitive 
 
 34 Fetch total payments amount paid by each and every customer. 
+select sum(amount) as total from payments group by customerNumber
 
 35 Fetch number of payments received by each and every customer. 
+select customerNumber,count(*) from payments group by customerNumber
 
 36 Fetch maximum payment amount received by each and every customer. 
+select customerNumber,max(amount) from payments group by customerNumber
 
 37 Fetch number of customers from each country and display them in descending order. 
+select country,count(*) from customers group by country order by count(*) desc ;
 
 38 Fetch number of orders given by each and every customers and display them in descending order. 
+select customerNumber, count(*) from orders group by customerNumber order by count(*) desc 
 
 39 Fetch number of employees in each office. 
+select officeCode,count(*) from employees group by officeCode
 
-40 Fetch top 5 customers number order wise. 
+40 Fetch top 5 customers number order wise. (fetch top 5 customerNumber who have given maximum order)
+
 
 41 Fetch customerNumber wise top 5 payments. 
+select customerNumber, count(*) from orders group by customerNumber order by count(*) desc limit 0,5;
 
-42 Fetch customer wise total payment amount of those customers whose total payment amount is above 1 lakh and display it in descending order. 
 
-43 Fetch customer wise number of payments made of those customers who have made more than 3 payments and display in descending order. 
+Having clause
+having clause is used to set condition on group by value. it is only used when select statement has Aggregate function and group by clause. 
+
+42 Fetch customer wise total payment amount of those customers whose total payment amount is above 1 lakh and display it in descending order.
+select customerNumber,sum(amount) as total from payments group by customerNumber having sum(amount)>100000 order by sum(amount) desc;
+
+43 Fetch customer wise number of payments made of those customers who have made more than 3 payments and display in descending order.
+select customerNumber,count(*) from payments group by customerNumber having count(*)>3 order by count(*) desc 
+
 
 44 Fetch country name and number of customers from each country where there are more than 5 customers. 
+select country,count(*) from customers group by country having count(*)>5
+
+join operation 
+--------------------------------------------------------------------------------
 
 45 Fetch customerNumber, customerName, city, state, country and orderNumber, orderDate, status of order, display it customerNumber wise ascending order. 
 
