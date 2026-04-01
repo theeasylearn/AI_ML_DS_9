@@ -281,25 +281,212 @@ select customerNumber,count(*) from payments group by customerNumber having coun
 44 Fetch country name and number of customers from each country where there are more than 5 customers. 
 select country,count(*) from customers group by country having count(*)>5
 
-join operation 
---------------------------------------------------------------------------------
 
-45 Fetch customerNumber, customerName, city, state, country and orderNumber, orderDate, status of order, display it customerNumber wise ascending order. 
+Joins
+----------------------------------------------------------------------------------------------------
+Join operation basically  makes join between any numbers of tables and display data as single virtual table.
 
-46 Fetch customerNumber, customerName, city, state, country and paymentDate, amount of each and every customer and display them payment date wise. 
+to join multiple tables, there must be one common field between tables to be used in join.
 
-47 Fetch productCode, productName, quantityOrdered, priceEach, orderNumber, orderDate, status of each and every order. 
+what is common field?
+common field is field in two table which has same data type and same set of values (domain values)
 
-48 Fetch each order's orderNumber, customerNumber and total order value. 
+Ram 
+A B C D E 
 
-49 Fetch customerNumber, customerName who have never given any order. 
+shyam 
+C D E F G 
 
-50 Fetch productCode and ProductName of those product which is never ordered. 
+Common toys 
+C D E 
 
-51 Fetch customerNumber and customerName who have never given any payments. 
+types of 
 
-52 Fetch those office detail from office table in which no employees are working. 
+INNER JOIN / Equi join 
+Inner join fetches only matching rows from all the tables using in join. here  matching rows means common field in both table has same value in both table  
 
-53 Fetch possibilities where each and every employees can work in each office. 
+Ram 
+A B C D E 
 
-54 Find actual customer number and name who have not given payments. 
+shyam 
+C D E F G 
+
+Common toys 
+C D E 
+
+
+LEFT JOIN
+Left join fetches all rows from left side table but only matching rows from right side table.  here  matching rows means common field in both table has same value in both table  
+
+Ram 
+A B C D E 
+
+shyam 
+C D E F G 
+
+RAM AND SHYAM 
+
+RAM 
+A B C D E 
+
+SHYAM 
+
+NULL NULL NULL C D E 
+
+RIGHT JOIN
+right join fetches all rows from right side table but only matching rows from left side table.  here  matching rows means common field in both table has same value in both table  
+
+Ram 
+A B C D E 
+
+shyam 
+C D E F G 
+
+RAM AND SHYAM 
+
+RAM 
+C D E NULL NULL 
+
+SHYAM 
+
+C D E F G 
+
+CROSS JOIN
+FETCH DATA FROM BOTH TABLE WITHOUT ANY CONDITION 
+
+
+SELF JOIN
+WHEN TABLE MAKE JOIN ITSELF IT IS CALLED SELF JOIN. HERE WE SAME TABLE 2 TIMES. 
+
+
+35  Fetch customerNumber, customerName, city, state, country and orderNumber, orderDate, status of order, display it customerNumber wise ascending order
+
+SQL : 
+    1) select customerNumber, customerName, city, state, country from customers c 
+    2) select orderNumber, orderDate, status from orders o 
+
+    let us join 
+    3) select c.customerNumber, customerName, city, state, country, orderNumber, orderDate, status from customers c, orders o where c.customerNumber = o.customerNumber order by c.customerNumber
+
+36 Fetch customerNumber, customerName, city, state, country and paymentDate, amount of each and every customer and display them payment date wise (old date come first and new date come last)
+SQL :
+
+    1) select customerNumber, customerName, city, state, country from customers c
+    2) select paymentDate, amount from payments p 
+
+
+       let us join 
+    3) select c.customerNumber, customerName, city, state, paymentDate, amount from customers c, payments p where c.customerNumber = p.customerNumber order by paymentDate 
+
+
+37 Fetch productCode, productName, quantityOrdered, priceEach, orderNumber, orderDate, status of each and every order
+SQL : 
+    1) select productCode, productName from products p 
+    2) select priceEach,quantityOrdered from orderdetails od 
+    3) 
+
+    let us join 
+    1)  select productCode, productName, orderNumber,quantityOrdered,priceEach, orderdate,status from products p,  orderdetails od, orders o where p.productCode = od.productCode and o.orderNumber = od.orderNumber  
+
+38) fetch each order's orderNumber,customerNumber and total order value 
+SQL 
+    1) select orderNumber,customerNumber from orders o 
+    2) select orderNumber,sum(priceEach*quantityOrdered) as order_amount from orderdetails od group by orderNumber;
+
+    let us join 
+
+    3) select o.orderNumber,customerNumber ,sum(priceEach*quantityOrdered) as order_amount from orders o, orderdetails od where o.orderNumber=od.orderNumber group by o.orderNumber;
+
+LEFT JOIN 
+-------------
+Left join fetches all rows from left side table but only matching rows from right side table.  here  matching rows means common field in both table has same value in both table  
+
+39) fetch customerNumber,customerName who have never given any order 
+
+SQL : 
+    1) SELECT customerNumber, customerName from customers c
+    2) select orderNumber from orders o 
+
+    let us join 
+
+    select c.customerNumber, customerName,orderNumber from customers c left join  orders o on c.customerNumber = o.customerNumber where orderNumber IS NULL 
+
+40) Fetch those productCode and ProductName of those product which is never ordered 
+
+SQL : 
+    1) select productCode, productName from products p 
+    2) select orderNumber from orderdetails od 
+
+    let us join 
+    select p.productCode, productName,orderNumber from products p left join orderdetails od on p.productCode = od.productCode where orderNumber is null 
+-------------------------------------------------------------------------------------------------
+RIGHT JOIN
+
+right join fetches all rows from right side table but only matching rows from left side table.  here  matching rows means common field in both table has same value in both table  
+
+41) fetch those customerNumber and customerName who have never given any payments 
+SQL 
+    1) SELECT customerNumber, customerName from customers c
+    2) SELECT AMOUNT FROM payments p 
+
+
+    let us join them 
+    select amount,c.customerNumber,customerName from payments p right join customers c on p.customerNumber = c.customerNumber where amount is null 
+
+42) fetch those office Detail from office table in which no employees are working 
+    
+SQL)
+    1) select * from offices o 
+    2) select officecode from employees e 
+
+let us join 
+    select e.officecode,o.* from employees e right join offices o on o.officecode = e.officecode where e.employeeNumber is null 
+
+CROSS JOIN
+    FETCH DATA FROM BOTH TABLE WITHOUT ANY CONDITION 
+
+fetch possibilities where each and every employees can work in each office 
+---------------------------------------
+SQL)
+    1) select * from offices o 
+    2) select * from employees e 
+
+let us join  
+    select o.*,e.* from offices o, employees e 
+
+some advance examples 
+-----------------------------------------------------
+43) findout actual customer's number and name  who have not given payments 
+
+SQL 
+    1) findout customers who have have given orders 
+    select DISTINCT customerNumber from orders o 
+
+    2) findout customerNumber and customerName from customers
+    select customerNumber,customerName from customers c     
+
+    3) findout customerNumber who have made at least one payments 
+        select distinct customerNumber from payments p 
+
+    let us join them
+    fetch customers details who has given orders  
+    select c.customerNumber,customerName from customers c, orders o where c.customerNumber=o.customerNumber  
+
+    now display only those customers who have not made payments 
+    select DISTINCT c.customerNumber,customerName from customers c, orders o where c.customerNumber=o.customerNumber and c.customerNumber not in (select distinct customerNumber from payments p)
+
+
+    fetch customerNumber,customerName, pending amount 
+
+    1) fetch orderNumber and order amount 
+        select orderNumber, sum(priceEach * quantityOrdered) from orderdetails od group by orderNumber
+
+    2) fetch customerNumber,customerName, orderNumber
+        select c.customerNumber,customerName,orderNumber from customers c, order o where c.customerNumber = o.customerNumber
+
+    let us join above detail 
+         select c.customerNumber,customerName,o.orderNumber, sum(priceEach * quantityOrdered) from customers c, orders  o, orderdetails od  where c.customerNumber = o.customerNumber and o.orderNumber = od.orderNumber group by o.orderNumber;
+    
+        let us remove those customers who have given payment 
+
+        select c.customerNumber,customerName,o.orderNumber, sum(priceEach * quantityOrdered) from customers c, orders  o, orderdetails od  where c.customerNumber = o.customerNumber and o.orderNumber = od.orderNumber and c.customerNumber not in (select distinct customerNumber from payments p ) group by o.orderNumber;
