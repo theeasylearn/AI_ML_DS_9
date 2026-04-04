@@ -383,19 +383,20 @@ SQL :
 SQL : 
     1) select productCode, productName from products p 
     2) select priceEach,quantityOrdered from orderdetails od 
-    3) 
+    3) select orderNumber,orderDate,status from orders o 
 
     let us join 
-    1)  select productCode, productName, orderNumber,quantityOrdered,priceEach, orderdate,status from products p,  orderdetails od, orders o where p.productCode = od.productCode and o.orderNumber = od.orderNumber  
+    1)  select o.ordernumber,p.productCode, productName,  priceEach,quantityOrdered, orderDate,status from products p,  orderdetails od, orders o where p.productCode = od.productCode and od.orderNumber = o.orderNumber
 
-38) fetch each order's orderNumber,customerNumber and total order value 
+38) fetch each order's orderNumber,customerName and total order value 
 SQL 
-    1) select orderNumber,customerNumber from orders o 
-    2) select orderNumber,sum(priceEach*quantityOrdered) as order_amount from orderdetails od group by orderNumber;
+    1) select orderNumber,sum(priceEach*quantityOrdered) as total from orderdetails od group by orderNumber
+    2) select customerName,customerNumber from customers c 
+    3) select orderNumber from orders 
 
     let us join 
-
-    3) select o.orderNumber,customerNumber ,sum(priceEach*quantityOrdered) as order_amount from orders o, orderdetails od where o.orderNumber=od.orderNumber group by o.orderNumber;
+    
+    3) select od.orderNumber,sum(priceEach*quantityOrdered) as total, customerName,c.customerNumber from orderdetails od, customers c, orders o  where c.customerNumber = o.customerNumber and o.orderNumber = od.orderNumber group by od.orderNumber
 
 LEFT JOIN 
 -------------
@@ -404,21 +405,23 @@ Left join fetches all rows from left side table but only matching rows from righ
 39) fetch customerNumber,customerName who have never given any order 
 
 SQL : 
-    1) SELECT customerNumber, customerName from customers c
+    1) select customerNumber,customerName from customers c 
     2) select orderNumber from orders o 
 
     let us join 
-
-    select c.customerNumber, customerName,orderNumber from customers c left join  orders o on c.customerNumber = o.customerNumber where orderNumber IS NULL 
+    select c.customerNumber,customerName,orderNumber from customers c left join orders o on c.customerNumber = o.customerNumber where orderNumber is null ;
+    
 
 40) Fetch those productCode and ProductName of those product which is never ordered 
 
 SQL : 
     1) select productCode, productName from products p 
     2) select orderNumber from orderdetails od 
+    3) 
 
     let us join 
-    select p.productCode, productName,orderNumber from products p left join orderdetails od on p.productCode = od.productCode where orderNumber is null 
+      select p.productCode,productName,od.orderNumber from products p left join orderdetails od on p.productCode = od.productCode where orderNumber is NULL
+
 -------------------------------------------------------------------------------------------------
 RIGHT JOIN
 
