@@ -429,24 +429,26 @@ right join fetches all rows from right side table but only matching rows from le
 
 41) fetch those customerNumber and customerName who have never given any payments 
 SQL 
-    1) SELECT customerNumber, customerName from customers c
-    2) SELECT AMOUNT FROM payments p 
+    1) select customerNumber,customerName from customer c 
+    2) select amount from payments p 
 
 
     let us join them 
-    select amount,c.customerNumber,customerName from payments p right join customers c on p.customerNumber = c.customerNumber where amount is null 
+   select amount,c.customerNumber,customerName from payments p right join customers c on p.customerNumber = c.customerNumber where amount is NULL;
 
-42) fetch those office Detail from office table in which no employees are working 
+42) fetch those office Detail from office table in which 0 employees are working 
     
 SQL)
-    1) select * from offices o 
-    2) select officecode from employees e 
+    1) select * from offices o
+    2) select employeeNumber from employees e 
+
 
 let us join 
-    select e.officecode,o.* from employees e right join offices o on o.officecode = e.officecode where e.employeeNumber is null 
+    select employeeNumber,o.* from employees e right join offices o on e.officeCode = o.officecode where employeeNumber is null 
 
 CROSS JOIN
     FETCH DATA FROM BOTH TABLE WITHOUT ANY CONDITION 
+
 
 fetch possibilities where each and every employees can work in each office 
 ---------------------------------------
@@ -457,36 +459,38 @@ SQL)
 let us join  
     select o.*,e.* from offices o, employees e 
 
+
 some advance examples 
 -----------------------------------------------------
 43) findout actual customer's number and name  who have not given payments 
 
 SQL 
     1) findout customers who have have given orders 
-    select DISTINCT customerNumber from orders o 
+       select DISTINCT customerNumber from orders o  
 
     2) findout customerNumber and customerName from customers
-    select customerNumber,customerName from customers c     
+       select customerNumber,customerName from customers  
 
-    3) findout customerNumber who have made at least one payments 
-        select distinct customerNumber from payments p 
+    3) findout customerNumber who have made at least one payments
+       select distinct customerNumber from payments 
+        
 
     let us join them
     fetch customers details who has given orders  
-    select c.customerNumber,customerName from customers c, orders o where c.customerNumber=o.customerNumber  
-
-    now display only those customers who have not made payments 
-    select DISTINCT c.customerNumber,customerName from customers c, orders o where c.customerNumber=o.customerNumber and c.customerNumber not in (select distinct customerNumber from payments p)
+    select distinct c.customerNumber,customerName from customers c, orders o where c.customerNumber = o.customerNumber and c.customerNumber not in ( select distinct customerNumber from payments ) 
 
 
     fetch customerNumber,customerName, pending amount 
 
     1) fetch orderNumber and order amount 
-        select orderNumber, sum(priceEach * quantityOrdered) from orderdetails od group by orderNumber
+        SELECT orderNumber,sum(priceEach * quantityOrdered) as total from orderdetails od 
 
     2) fetch customerNumber,customerName, orderNumber
-        select c.customerNumber,customerName,orderNumber from customers c, order o where c.customerNumber = o.customerNumber
+        select customerNumber,customerName from customer c 
+        select orderNumber from orders o 
 
+      select c.customerNumber,customerName,orderNumber,( SELECT sum(priceEach * quantityOrdered) as total from orderdetails od where o.orderNumber=od.orderNumber ) as order_amount from customers c, orders o where c.customerNumber = o.customerNumber;
+        
     let us join above detail 
          select c.customerNumber,customerName,o.orderNumber, sum(priceEach * quantityOrdered) from customers c, orders  o, orderdetails od  where c.customerNumber = o.customerNumber and o.orderNumber = od.orderNumber group by o.orderNumber;
     
