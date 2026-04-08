@@ -1,0 +1,39 @@
+trip income expense tracker application
+----------------------------------------
+tour(trip)
+---------------------
+id,title,detail,start_date,days
+
+
+transaction
+--------------------------------
+id,tourid,amount,flag(1=income,2=expense),description,challanno,trandate
+
+
+tour management 
+------------------------
+    insert,update,delete,view,report
+
+transaction management
+-------------------------
+    insert,view,delete,search
+
+
+SQL 
+CREATE TABLE trip (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  detail TEXT,
+  start_date DATE NOT NULL,
+  days INT NOT NULL check (days>0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE transactions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tourid INT NOT NULL,
+  amount DECIMAL(12,2) NOT NULL,
+  flag TINYINT UNSIGNED NOT NULL COMMENT '1=income, 2=expense',
+  description TEXT,
+  challanno VARCHAR(100),
+  trandate DATE NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
