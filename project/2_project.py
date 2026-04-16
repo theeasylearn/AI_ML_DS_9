@@ -1,5 +1,6 @@
 import connect as cn 
 from datetime import datetime as dt 
+tourid = 0 #global variable
 def DisplayTour():
     #create sql statement
     sql = "select id,title,detail,date_format(start_date,'%d-%m-%Y') as start_date ,days from trip order by id desc";
@@ -22,6 +23,7 @@ def DisplayTour():
         print(f"{row['id']:<10} {row['title']:<32} {row['detail']:<32} {row['start_date']} {'':<12} {row['days']:10}")
 def FetchTourId():
     DisplayTour()
+    global tourid
     tourid = int(input("Enter tour id"))
     sql = "select id from trip where id=%s"
     values = [tourid]
@@ -53,7 +55,20 @@ while True:
                     print("trip id not found")
                 else:
                     print("fetch all transaction of given tour")
-                    
+                    sql = "select id, amount, flag, description, challanno, date_format(trandate,'%a %d-%m-%Y') as trandate from transactions where tourid=%s"
+                    values = [tourid]
+                    mycursor.execute(sql,values)
+                    table = mycursor.fetchall()
+                    print(f"{'id':<5} {'tran date':<15} {'description':<58} {'flag':<2} {'':9}{'amount'} {'ch.no':12}")
+                    print("_"*110)
+                    msg = None
+                    for row in table:
+                        if row['flag'] == 1:
+                            msg='inc'
+                        else:
+                            msg='Exp'
+                        print(f"{row['id']:<5} {row['trandate']:<15} {row['description']:<60} {msg:<2} {row['amount']:14} {row['challanno']:12}")
+
             elif transaction_choice==2:
                 table = FetchTourId()
                 if len(table)==0:
