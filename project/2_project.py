@@ -1,12 +1,18 @@
 import connect as cn 
-from datetime import datetime as dt 
-tourid = 0 #global variable
-def DisplayTour():
-    #create sql statement
-    sql = "select id,title,detail,date_format(start_date,'%d-%m-%Y') as start_date ,days from trip order by id desc";
+from datetime import datetime as dt
 
+tourid = 0 #global variable
+transaction_id = 0 #global variable
+mycursor = cn.database.cursor(dictionary=True)
+def DisplayTour(isDeleted=0):
+    #create sql statement
+    if isDeleted == 0:
+        sql = "select id,title,detail,date_format(start_date,'%d-%m-%Y') as start_date ,days from trip where isdeleted=0 order by id desc";
+    else:
+        sql = "select id,title,detail,date_format(start_date,'%d-%m-%Y') as start_date ,days from trip order by id desc";
     #run sql statement
-    mycursor.execute(sql) 
+    values = [isDeleted]
+    mycursor.execute(sql,isDeleted) 
 
     #fetch one row 
     # firstrow = mycursor.fetchone()
@@ -22,7 +28,7 @@ def DisplayTour():
     for row in table:
         print(f"{row['id']:<10} {row['title']:<32} {row['detail']:<32} {row['start_date']} {'':<12} {row['days']:10}")
 def FetchTourId():
-    DisplayTour()
+    DisplayTour(1)
     global tourid
     tourid = int(input("Enter tour id"))
     sql = "select id from trip where id=%s"
@@ -30,7 +36,47 @@ def FetchTourId():
     mycursor.execute(sql,values)
     table = mycursor.fetchall()
     return table 
-mycursor = cn.database.cursor(dictionary=True)
+def DisplayTransaction():
+    table = FetchTourId()
+    if len(table)==0:
+        print("trip id not found")
+    else:
+        print("fetch all transaction of given tour")
+        sql = "select id, amount, flag, description, challanno, date_format(trandate,'%a %d-%m-%Y') as trandate from transactions where tourid=%s"
+        values = [tourid]
+        mycursor.execute(sql,values)
+        table = mycursor.fetchall()
+        print(f"{'id':<5} {'tran date':<15} {'description':<58} {'flag':<2} {'':9}{'amount'} {'ch.no':12}")
+        print("_"*110)
+        msg = None
+        income = expense = 0 # chain assignment
+        for row in table:
+            if row['flag'] == 1:
+                msg='inc'
+                income += row['amount']
+            else:
+                msg='Exp'
+                expense+= row['amount']
+            print(f"{row['id']:<5} {row['trandate']:<15} {row['description']:<60} {msg:<2} {row['amount']:14} {row['challanno']:12}")
+        
+        print("_"*110)
+        temp = None 
+        if income>expense:
+            temp = "Profit Amount"
+        else: 
+            temp = "Loss Amount"
+
+        print(f"Total expense =  {expense}       Total Income {income}              {temp} {income-expense}")
+        print("_"*110)
+def FetchTransactionId():
+    global transaction_id
+    DisplayTransaction()
+    transaction_id = int(input("Enter transaction id"))
+    sql = "select id from transactions where id=%s"
+    values = [transaction_id]
+    mycursor.execute(sql,values)
+    table = mycursor.fetchall()
+    return table 
 while True:
     print("Press 1 to transaction management")
     print("Press 2 to trip management")
@@ -50,25 +96,7 @@ while True:
             if transaction_choice<0 or transaction_choice>4:
                 print("Invalid transaction choice")
             elif transaction_choice==1:
-                table = FetchTourId()
-                if len(table)==0:
-                    print("trip id not found")
-                else:
-                    print("fetch all transaction of given tour")
-                    sql = "select id, amount, flag, description, challanno, date_format(trandate,'%a %d-%m-%Y') as trandate from transactions where tourid=%s"
-                    values = [tourid]
-                    mycursor.execute(sql,values)
-                    table = mycursor.fetchall()
-                    print(f"{'id':<5} {'tran date':<15} {'description':<58} {'flag':<2} {'':9}{'amount'} {'ch.no':12}")
-                    print("_"*110)
-                    msg = None
-                    for row in table:
-                        if row['flag'] == 1:
-                            msg='inc'
-                        else:
-                            msg='Exp'
-                        print(f"{row['id']:<5} {row['trandate']:<15} {row['description']:<60} {msg:<2} {row['amount']:14} {row['challanno']:12}")
-
+               DisplayTransaction()
             elif transaction_choice==2:
                 table = FetchTourId()
                 if len(table)==0:
@@ -90,9 +118,35 @@ while True:
                     except ValueError as e:
                         print("invalid date")
             elif transaction_choice==3:
-                print("update existing transaction")
+                table = FetchTransactionId()
+                if len(table)==0:
+                    print("invalid transaction id")
+                else:
+                    try:
+                        sql = "update transactions set amount=%s, flag=%s, description=%s, challanno=%s, trandate=%s where id=%s"
+                        amount = int(input("Enter revised transaction amount"))
+                        flag = int(input("Press 1 for income Press 2 for expense"))
+                        description = input("Enter updated description")
+                        challanno = int(input("Enter updated challan no"))
+                        trandate = input("Enter updated transaction date (dd-mm-yyyy)")
+                        #convert string date into date
+                        trandate = dt.strptime(trandate,"%d-%m-%Y")
+                        values = [amount,flag,description,challanno,trandate,transaction_id]
+                        mycursor.execute(sql,values)
+                        cn.database.commit()
+                        print(mycursor.rowcount ," row updated")
+                    except ValueError as e:
+                        print("invalid date")
             elif transaction_choice==4:
-                print("delete existing transaction")
+                table = FetchTransactionId()
+                if len(table) == 0:
+                    print("invalid transaction id")
+                else:
+                    sql = "delete from transactions where id=%s"
+                    values = [transaction_id]
+                    mycursor.execute(sql,values)
+                    cn.database.commit()
+                    print("Transaction deleted")
             else:
                 break
     elif choice==2:
@@ -127,6 +181,7 @@ while True:
                 except ValueError as e:
                     print("invalid date")
             elif trip_choice==3:
+                FetchTourId()
                 try:
                     #create sql statement 
                     sql = "update trip set title=%s,detail=%s,start_date=%s,days=%s where id=%s"
@@ -147,9 +202,9 @@ while True:
                 else:
                     print(mycursor.rowcount, " trip updated")
             elif trip_choice==4:
-                sql = "delete from trip where id=%s"
-                id = int(input("Enter trip id to delete"))
-                values = [id]
+                FetchTourId()
+                sql = "update trip set isdeleted=1 where id=%s"
+                values = [tourid]
                 mycursor.execute(sql,values)
                 cn.database.commit()
                 print(mycursor.rowcount, " trip deleted")
