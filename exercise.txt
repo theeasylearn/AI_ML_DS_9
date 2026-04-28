@@ -1,0 +1,4 @@
+1) create 2d marksheet of 50 students. marks in range of 50 to 100 of integer type 
+2) create array which has 30 days temperature data of may month bhavnagar city, india 
+3) create array which has 10 random numbers of float type between 1 to 2 
+
