@@ -10,6 +10,3 @@ key = print("Press enter to continue")
 result = pd.read_json('marks.json').squeeze()
 print(result)
 key = print("Press enter to continue")
-
-
-
