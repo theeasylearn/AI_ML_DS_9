@@ -17,3 +17,6 @@ Line, Bar Chart
 7.3) create bar chart to display price hike of gold, sliver between year 2010 to 2025 (not overlapping bar)
 
 8) create bar chart to display GDP growth rate of india & china between year 2010 to 2025 (not overlapping bar)
+
+9) create histogram chart to display walking customers inquiry for 1 year period time. 
+
