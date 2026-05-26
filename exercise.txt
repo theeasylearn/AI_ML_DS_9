@@ -20,3 +20,8 @@ Line, Bar Chart
 
 9) create histogram chart to display walking customers inquiry for 1 year period time. 
 
+10) create heatmap chart to display last 30 days temperature of Ahmedabad City 
+
+11) create heatmap chart to display last 30 days temperature of Gandhinagar City 
+
+
