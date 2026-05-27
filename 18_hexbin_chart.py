@@ -2,14 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np 
 # 1. Initialize seed for consistent coordinate simulation
 np.random.seed(42)
-
 num_of_rides = 1000
-
 # 2. Simulate geographical ride hot-spots across Ahmedabad
 # Hub 1: Kalupur Area | Hub 2: Satellite/Vastrapur | Hub 3: Ashram Road
 lat_hubs = [23.03, 23.02, 23.05]
 lon_hubs = [72.60, 72.53, 72.57]
-
 latitude = []
 longitude = []
 for count in range(num_of_rides):
