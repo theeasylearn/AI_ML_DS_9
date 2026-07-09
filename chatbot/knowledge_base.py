@@ -1,4 +1,4 @@
-{
+knowledge = {
   "metadata": {
     "website": "https://theeasylearnacademy.com/",
     "version": "2.1",
@@ -363,3 +363,24 @@
     }
   ]
 }
+greetings = [
+    {"message": "hi", "reply": "Hello! 👋 How can I help you today?"},
+    {"message": "hello", "reply": "Hello! 👋 How can I help you today?"},
+    {"message": "hey", "reply": "Hey! 👋 How can I help you today?"},
+    {"message": "hi there", "reply": "Hello! 👋 How can I help you today?"},
+    {"message": "hello there", "reply": "Hello! 👋 How can I help you today?"},
+    {"message": "hey there", "reply": "Hey! 👋 How can I help you today?"},
+    {"message": "good morning", "reply": "Good morning! ☀️ How can I help you today?"},
+    {"message": "good afternoon", "reply": "Good afternoon! 😊 How can I help you today?"},
+    {"message": "good evening", "reply": "Good evening! 🌇 How can I help you today?"},
+    {"message": "good day", "reply": "Good day! 😊 How can I help you today?"},
+    {"message": "greetings", "reply": "Greetings! 👋 How can I help you today?"},
+    {"message": "how are you", "reply": "I'm doing well, thank you! How can I assist you today?"},
+    {"message": "how are you doing", "reply": "I'm doing great! How can I help you today?"},
+    {"message": "how's it going", "reply": "It's going well! How can I help you today?"},
+    {"message": "what's up", "reply": "Not much! I'm here to help. What can I do for you?"},
+    {"message": "nice to meet you", "reply": "Nice to meet you too! How can I help you today?"},
+    {"message": "namaste", "reply": "Namaste! 🙏 How can I help you today?"},
+    {"message": "namaskar", "reply": "Namaste! 🙏 How can I help you today?"},
+    
+]
