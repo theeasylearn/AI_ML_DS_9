@@ -1,0 +1,16 @@
+Name: ankit
+Email: ankit@gmail.com
+Mobile: 1234567890
+----------------------------------------
+You : hello
+Skisha:  Hello! 👋 How can I help you today?
+You : i want to learn pytho
+Skisha:  sorry i dont have answer of your question
+You : i want to learn python
+Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.
+You : need python course fees
+need python course fees are 15000
+You : bye
+Skisha:   Good bye see you again,
+----------------------------------------
+Conversation duration: 0 minutes, 41 seconds

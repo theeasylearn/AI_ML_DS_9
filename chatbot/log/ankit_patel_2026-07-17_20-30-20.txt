@@ -1,0 +1,22 @@
+Name: ankit patel
+Email: theeasylearn@gmail.com
+Mobile: 9662512857
+----------------------------------------
+You : mobile
++91 96625 12857
+You : email
+theeasylearn@gmail.com
+You : address
+Eva Surbhi Mall, 105, Waghawadi Road, opposite Aksharwadi Temple, Bhavnagar, Gujarat - 364002
+You : timings
+Skisha:  sorry i dont have answer of your question
+You : course time
+We offer courses in Python, Full Stack Development (MERN & PHP), AI/ML, Data Science, Cyber Security, UI/UX, Web Design, Tally, and CCC.
+You : python
+Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.
+You : ccc
+Our Course on Computer Concepts (CCC) covers computer fundamentals, operating systems, MS Office (Word, Excel, PowerPoint), internet surfing, email communication, and digital financial services.
+You : bye
+Skisha:   Good bye see you again,
+----------------------------------------
+Conversation duration: 0 minutes, 27 seconds

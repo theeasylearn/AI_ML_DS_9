@@ -9,6 +9,205 @@ knowledge = {
   },
   "knowledge_base": [
     {
+      "id": "course_python",
+      "topic": "python",
+      "title": "Python Programming Course",
+      "type": "Course",
+      "keywords": ["python", "python course", "python programming", "learn python"],
+      "utterances": [
+        "tell me about python course",
+        "python course details",
+        "python programming course kya hai",
+        "learn python course information"
+      ],
+      "answer": "Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.",
+      "answer_variations": [
+        "The Python course includes basics, oops, libraries, and live projects.",
+        "This is a complete Python course covering fundamentals, advanced topics, and practical projects."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "6-8 weeks",
+        "level": "Beginner to Advanced",
+        "fees": "₹15,000"
+      }
+    },
+    {
+      "id": "course_mern",
+      "topic": "mern",
+      "title": "MERN Full Stack Development Course",
+      "type": "Course",
+      "keywords": ["mern", "full stack", "mern stack", "web development", "react", "node", "mongodb", "express"],
+      "utterances": [
+        "tell me about mern stack course",
+        "full stack web development course details",
+        "mern course details",
+        "mern full stack course kya hai",
+        "learn full stack web development"
+      ],
+      "answer": "Our MERN Full Stack Development course teaches you MongoDB, Express.js, React, and Node.js. You will learn to build and deploy dynamic, full-featured web applications with hands-on projects.",
+      "answer_variations": [
+        "This course covers frontend and backend development using MongoDB, Express, React, and Node.js.",
+        "Become a full stack developer by building real-world web apps in our MERN Stack training program."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "16-20 weeks",
+        "level": "Intermediate to Advanced",
+        "fees": "₹35,000"
+      }
+    },
+    {
+      "id": "course_ai_ml",
+      "topic": "ai_ml",
+      "title": "AI & Machine Learning Course",
+      "type": "Course",
+      "keywords": ["ai", "ml", "machine learning", "artificial intelligence", "deep learning", "neural networks"],
+      "utterances": [
+        "tell me about ai ml course",
+        "artificial intelligence course details",
+        "machine learning course information",
+        "ai ml course kya hai",
+        "learn machine learning details"
+      ],
+      "answer": "Our AI & Machine Learning course covers data preprocessing, regression, classification, clustering, deep learning, and neural networks using Python and popular libraries like TensorFlow and Scikit-Learn.",
+      "answer_variations": [
+        "Learn AI and Machine Learning concepts and build predictive models with Python in this practical course.",
+        "The AI/ML course includes supervised learning, unsupervised learning, deep learning, and industry projects."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "12-16 weeks",
+        "level": "Intermediate to Advanced",
+        "fees": "₹30,000"
+      }
+    },
+    {
+      "id": "course_data_science",
+      "topic": "data_science",
+      "title": "Data Science Course",
+      "type": "Course",
+      "keywords": ["data science", "datascience", "data analyst", "pandas", "numpy", "matplotlib", "seaborn", "sql"],
+      "utterances": [
+        "tell me about data science course",
+        "data science course details",
+        "data science training information",
+        "data science course kya hai",
+        "learn data science information"
+      ],
+      "answer": "Our Data Science course teaches you data analysis, data visualization, statistical models, SQL database querying, and Python libraries like Pandas, NumPy, and Seaborn to extract meaningful insights from data.",
+      "answer_variations": [
+        "Master data analysis, data cleaning, and statistical methods in our comprehensive Data Science program.",
+        "This course prepares you for a data analyst or data scientist role with real-world case studies and projects."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "12-16 weeks",
+        "level": "Beginner to Advanced",
+        "fees": "₹25,000"
+      }
+    },
+    {
+      "id": "course_cyber_security",
+      "topic": "cyber_security",
+      "title": "Cyber Security Course",
+      "type": "Course",
+      "keywords": ["cyber security", "cybersecurity", "ethical hacking", "network security", "information security", "penetration testing"],
+      "utterances": [
+        "tell me about cyber security course",
+        "ethical hacking course details",
+        "cyber security training info",
+        "cyber security course kya hai",
+        "learn ethical hacking information"
+      ],
+      "answer": "Our Cyber Security course covers networking fundamentals, ethical hacking techniques, security protocols, cryptography, vulnerability assessment, and securing applications and networks from cyber threats.",
+      "answer_variations": [
+        "Learn how to secure networks, detect vulnerabilities, and perform ethical hacking in our Cyber Security program.",
+        "This practical training course covers information security, network defense, and penetration testing."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "8-12 weeks",
+        "level": "Beginner to Intermediate",
+        "fees": "₹20,000"
+      }
+    },
+    {
+      "id": "course_ui_ux",
+      "topic": "ui_ux",
+      "title": "UI/UX Design Course",
+      "type": "Course",
+      "keywords": ["ui ux", "ui", "ux", "uiux", "figma", "wireframe", "prototyping", "user interface", "user experience"],
+      "utterances": [
+        "tell me about ui ux course",
+        "ui ux design course details",
+        "figma designing course info",
+        "ui ux course kya hai",
+        "learn user interface design details"
+      ],
+      "answer": "Our UI/UX Design course teaches you user research, wireframing, prototyping, user testing, and visual design principles using industry-standard tools like Figma.",
+      "answer_variations": [
+        "Learn Figma, user research, wireframing, and interactive prototyping to build beautiful user interfaces.",
+        "Become a UI/UX designer by creating user personas, user journeys, and high-fidelity mockups."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "8-10 weeks",
+        "level": "Beginner to Intermediate",
+        "fees": "₹18,000"
+      }
+    },
+    {
+      "id": "course_tally",
+      "topic": "tally",
+      "title": "Tally Prime Course",
+      "type": "Course",
+      "keywords": ["tally", "tally prime", "accounting", "gst", "bookkeeping", "tally course"],
+      "utterances": [
+        "tell me about tally course",
+        "tally prime course details",
+        "accounting with gst course information",
+        "tally course kya hai",
+        "learn tally prime details"
+      ],
+      "answer": "Our Tally Prime course covers computer accounting, bookkeeping, voucher entry, inventory management, tax calculations like GST/TDS, and generating financial reports.",
+      "answer_variations": [
+        "Learn accounting, inventory tracking, and GST billing using the latest Tally Prime software.",
+        "A practical course designed to make you proficient in bookkeeping and GST taxation in Tally."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "4-6 weeks",
+        "level": "Beginner",
+        "fees": "₹8,000"
+      }
+    },
+    {
+      "id": "course_ccc",
+      "topic": "ccc",
+      "title": "CCC Course (Course on Computer Concepts)",
+      "type": "Course",
+      "keywords": ["ccc", "ccc course", "computer concepts", "basic computer", "ms office", "internet basics"],
+      "utterances": [
+        "tell me about ccc course",
+        "ccc course details",
+        "basic computer course information",
+        "ccc course kya hai",
+        "learn basic computer ccc details"
+      ],
+      "answer": "Our Course on Computer Concepts (CCC) covers computer fundamentals, operating systems, MS Office (Word, Excel, PowerPoint), internet surfing, email communication, and digital financial services.",
+      "answer_variations": [
+        "Prepare for the CCC certification with our basic computer training covering MS Office and internet concepts.",
+        "Learn essential computer skills and office productivity tools in this beginner-friendly CCC course."
+      ],
+      "metadata": {
+        "category": "Course",
+        "duration": "4-6 weeks",
+        "level": "Beginner",
+        "fees": "₹5,000"
+      }
+    },
+    {
       "id": "about_01",
       "topic": "about",
       "title": "About EasyLearn Academy",
@@ -24,16 +223,12 @@ knowledge = {
         "EasyLearn Academy has been running in Bhavnagar since 2010. We specialize in job-oriented IT training with hands-on live projects.",
         "We are a well-established IT training institute in Bhavnagar offering practical courses in web development, mobile apps, and emerging technologies."
       ],
-      "metadata": {
-        "category": "Institute",
-        "priority": "high"
-      }
     },
     {
       "id": "location_01",
       "topic": "location",
       "title": "Academy Location and Address",
-      "keywords": ["location", "address", "where", "place", "how to reach", "bhavnagar", "eva surbhi mall", "waghawadi road"],
+      "keywords": ["location", "address", "where", "place", "how to reach", "bhavnagar", "eva surbhi mall", "waghawadi road", "situated at"],
       "utterances": [
         "where is the academy located",
         "academy ka address kya hai",
@@ -44,10 +239,7 @@ knowledge = {
         "Our academy is situated at Eva Surbhi Mall, 105, Waghawadi Road, near Aksharwadi Temple in Bhavnagar.",
         "You can find us at Eva Surbhi Mall on Waghawadi Road, right opposite Aksharwadi Temple, Bhavnagar."
       ],
-      "metadata": {
-        "category": "Contact",
-        "priority": "high"
-      }
+      "address": "Eva Surbhi Mall, 105, Waghawadi Road, opposite Aksharwadi Temple, Bhavnagar, Gujarat - 364002"
     },
     {
       "id": "courses_01",
@@ -65,16 +257,12 @@ knowledge = {
         "Our popular courses include Python, Full Stack (MERN), AI & Machine Learning, Data Science, Cyber Security, and Flutter Development.",
         "We provide training in Python, MERN Stack, AI/ML, Data Science, Cyber Security, UI/UX Design, Tally, and CCC."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "high"
-      }
     },
     {
       "id": "training_method_01",
       "topic": "training_method",
       "title": "Training Methodology",
-      "keywords": ["training", "teaching", "practical", "hands on", "live project", "how do you teach"],
+      "keywords": ["training", "train", "teaching", "practical", "hands on", "live project", "how do you teach"],
       "utterances": [
         "how do you teach",
         "kitna practical training hai",
@@ -85,10 +273,6 @@ knowledge = {
         "Our training is completely practical. Students work on real live projects in small batches so they get proper guidance.",
         "We believe in learning by doing. Every student works on live projects and gets individual attention from trainers."
       ],
-      "metadata": {
-        "category": "Institute",
-        "priority": "medium"
-      }
     },
     {
       "id": "placement_01",
@@ -105,10 +289,6 @@ knowledge = {
         "Our placement support includes resume preparation, mock interviews, and job referrals. Many students have been placed in good companies.",
         "We help students with resume building, interview preparation, and connect them with companies for job opportunities."
       ],
-      "metadata": {
-        "category": "Placement",
-        "priority": "high"
-      }
     },
     {
       "id": "corporate_01",
@@ -123,30 +303,27 @@ knowledge = {
       "answer_variations": [
         "We provide customized corporate training programs for teams and also offer offshore software development services."
       ],
-      "metadata": {
-        "category": "Services",
-        "priority": "medium"
-      }
     },
     {
       "id": "contact_01",
       "topic": "contact",
       "title": "Contact Information",
-      "keywords": ["contact", "phone", "number", "email", "call", "reach", "whatsapp"],
+      "keywords": ["contact", "phone", "number", "email", "call", "reach", "whatsapp", "mobile", "contact no", "mail"],
       "utterances": [
         "how can I contact you",
         "phone number kya hai",
-        "email id batao"
+        "email id batao",
+        "address kya hai",
+        "location kya hai",
+        "where are you located"
       ],
       "answer": "You can reach us at +91 96625 12857 or email theeasylearn@gmail.com. We are available Monday to Saturday.",
       "answer_variations": [
         "Feel free to call us at 96625 12857 or email at theeasylearn@gmail.com. Our working hours are Monday to Saturday.",
         "You can contact us on +91 96625 12857 or drop an email at theeasylearn@gmail.com."
       ],
-      "metadata": {
-        "category": "Contact",
-        "priority": "high"
-      }
+      "contact_no": "+91 96625 12857",
+      "email": "theeasylearn@gmail.com"
     },
     {
       "id": "fees_01",
@@ -163,10 +340,6 @@ knowledge = {
         "Most of our courses are between 2 to 6 months long. We keep our fees reasonable and also offer EMI facilities.",
         "Course length depends on the program. Fees are affordable and we provide installment options as well."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "high"
-      }
     },
     {
       "id": "batch_01",
@@ -183,10 +356,6 @@ knowledge = {
         "We run batches in the morning, afternoon, and evening. Weekend options are also there, and new batches begin every month.",
         "You can choose from morning, evening, or weekend batches. Fresh batches start regularly throughout the month."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "medium"
-      }
     },
     {
       "id": "certificate_01",
@@ -202,10 +371,6 @@ knowledge = {
         "After completing the course, you will get a Course Completion Certificate along with a Live Project Certificate.",
         "We provide both course completion and project certificates which are valuable for job applications."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "medium"
-      }
     },
     {
       "id": "eligibility_01",
@@ -222,10 +387,6 @@ knowledge = {
         "There is no strict eligibility criteria. Both beginners and working professionals can join our courses.",
         "Whether you are a student, fresher, or working professional, you can join. No prior experience is needed for most courses."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "medium"
-      }
     },
     {
       "id": "demo_01",
@@ -241,16 +402,12 @@ knowledge = {
         "We provide free demo classes so you can experience our teaching method before joining any course.",
         "Interested students can attend a free demo class to see how we conduct training."
       ],
-      "metadata": {
-        "category": "Admission",
-        "priority": "high"
-      }
     },
     {
       "id": "mode_01",
       "topic": "mode",
       "title": "Online and Offline Training",
-      "keywords": ["online", "offline", "mode", "virtual"],
+      "keywords": ["online", "offline", "mode"],
       "utterances": [
         "online course hai kya",
         "offline bhi hai kya",
@@ -261,10 +418,6 @@ knowledge = {
         "Training is available in both online and offline formats depending on your preference.",
         "You have the flexibility to join either online or offline batches."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "medium"
-      }
     },
     {
       "id": "doubt_01",
@@ -280,10 +433,6 @@ knowledge = {
         "Our support doesn't end after the course. You can reach out for doubt clarification even after finishing the program.",
         "We offer post-course doubt support so students can continue learning without any hesitation."
       ],
-      "metadata": {
-        "category": "Support",
-        "priority": "medium"
-      }
     },
     {
       "id": "language_01",
@@ -299,10 +448,6 @@ knowledge = {
         "We teach in Gujarati, Hindi, and English so that every student can understand comfortably.",
         "The medium of instruction can be Gujarati, Hindi, or English depending on what suits the batch."
       ],
-      "metadata": {
-        "category": "Institute",
-        "priority": "low"
-      }
     },
     {
       "id": "why_01",
@@ -318,10 +463,6 @@ knowledge = {
         "What makes us different is our practical approach, personal attention in small batches, and dedicated placement assistance.",
         "We stand out because of our hands-on training, experienced faculty, and consistent focus on student placement."
       ],
-      "metadata": {
-        "category": "Institute",
-        "priority": "medium"
-      }
     },
     {
       "id": "internship_01",
@@ -337,10 +478,6 @@ knowledge = {
         "Every student gets to work on live projects which gives them valuable industry exposure and a strong portfolio.",
         "We emphasize learning through real projects so students are better prepared for actual job roles."
       ],
-      "metadata": {
-        "category": "Course",
-        "priority": "medium"
-      }
     },
     {
       "id": "general_01",
@@ -356,10 +493,6 @@ knowledge = {
         "Study materials and recorded sessions are provided to all students. For policies like refund, kindly get in touch with us.",
         "You will receive study material and access to recorded lectures. Please contact the academy for any specific policy-related queries."
       ],
-      "metadata": {
-        "category": "General",
-        "priority": "low"
-      }
     }
   ]
 }
@@ -382,5 +515,4 @@ greetings = [
     {"message": "nice to meet you", "reply": "Nice to meet you too! How can I help you today?"},
     {"message": "namaste", "reply": "Namaste! 🙏 How can I help you today?"},
     {"message": "namaskar", "reply": "Namaste! 🙏 How can I help you today?"},
-    
 ]

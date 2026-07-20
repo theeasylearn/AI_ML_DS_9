@@ -1,0 +1,26 @@
+Name: jay_bhatt
+Email: jay@gmail.com
+Mobile: 1231231231
+----------------------------------------
+You : where are you located
+You can reach us at +91 96625 12857 or email theeasylearn@gmail.com. We are available Monday to Saturday.
+You : what are the fees for python course
+what are the fees for python course are 15000
+You : mern stack duration
+mern stack duration is 16-20 weeks
+You : what makes you different
+Skisha:  sorry i dont have answer of your question
+You : where are you located
+You can contact us on +91 96625 12857 or drop an email at theeasylearn@gmail.com.
+You : what are the fees for python course
+what are the fees for python course are 15000
+You : mern stack duration
+mern stack duration is 16-20 weeks
+You : tell me about python course
+Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.
+You : python
+This is a complete Python course covering fundamentals, advanced topics, and practical projects.
+You : bye
+Skisha:  Good bye see you again,
+----------------------------------------
+Conversation duration: 2 minutes, 20 seconds

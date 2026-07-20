@@ -1,0 +1,24 @@
+Name: ankit.patel
+Email: ankit@gmail.com
+Mobile: 1231231231
+----------------------------------------
+You : tell me about python course
+Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.
+You : mern stack duration
+mern stack duration is 16-20 weeks
+You : what are the fees for python course
+what are the fees for python course are 15000
+You : where are you located
+Feel free to call us at 96625 12857 or email at theeasylearn@gmail.com. Our working hours are Monday to Saturday.
+You : what makes you different
+Skisha:  sorry i dont have answer of your question
+You : what is python course fees
+what is python course fees are 15000
+You : fees
+Course duration ranges from 1 to 6 months depending on the course. Our fees are affordable with EMI options available.
+You : python fees
+python fees are 15000
+You : address
+Eva Surbhi Mall, 105, Waghawadi Road, opposite Aksharwadi Temple, Bhavnagar, Gujarat - 364002
+----------------------------------------
+Conversation duration: 1 minutes, 19 seconds
