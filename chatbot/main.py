@@ -115,7 +115,6 @@ async def chat_message(req: ChatMessageRequest):
 
     # Process response
     response_lines = []
-
     def custom_print(*args, **kwargs):
         line = " ".join(str(arg) for arg in args)
         response_lines.append(line)
