@@ -1,0 +1,10 @@
+Name: khushi bhatia
+Email: khushi@gmail.com
+Mobile: 1231231231
+----------------------------------------
+You : python
+Our Python Programming course covers everything from basics to advanced concepts. You'll learn variables, loops, functions, oops, libraries, and work on live projects.
+You : bye
+Skisha:  Good bye see you again,
+----------------------------------------
+Conversation duration: 1 minutes, 18 seconds

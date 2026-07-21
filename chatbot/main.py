@@ -95,12 +95,12 @@ async def start_session(req: StartSessionRequest):
     }
 
 @app.post("/api/chat")
-async def chat_message(req: ChatMessageRequest):
-    session_id = req.session_id
-    message = req.message
+async def chat_message(request: ChatMessageRequest):
+    session_id = request.session_id
+    message = request.message
 
     if session_id not in active_sessions:
-        raise HTTPException(status_code=404, detail="Session not found or has expired.")
+        raise HTTPException(status_code=404, detail="Session not found or has been expired.")
 
     session = active_sessions[session_id]
     log_filepath = session["log_filepath"]
@@ -131,7 +131,7 @@ async def chat_message(req: ChatMessageRequest):
             print(f"Error writing bot exit response to log: {e}")
         return {"response": bot_response}
 
-    # Standard preprocessing
+    # Standard preprocessing (findout response using chatbot.py)
     chatbot.preprocess(message, print_func=custom_print)
     bot_response = "\n".join(response_lines)
 
@@ -156,8 +156,8 @@ async def end_session(req: EndSessionRequest):
     log_filepath = session["log_filepath"]
     start_time = session["start_time"]
 
-    end_time = datetime.now()
-    duration = end_time - start_time
+    end_time = datetime.now() #store current time 
+    duration = end_time - start_time #
     duration_str = f"{duration.seconds // 60} minutes, {duration.seconds % 60} seconds"
 
     # Append duration footer and close session log
@@ -183,6 +183,8 @@ async def end_session(req: EndSessionRequest):
 # Mount static folder for serving static files (HTML, CSS, JS)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+#define route for root (home of website)
+# //http://127.0.0.1:8000 
 @app.get("/")
 async def serve_index():
     return FileResponse("static/index.html")
@@ -190,3 +192,4 @@ async def serve_index():
 if __name__ == '__main__':
     # Run the uvicorn development server
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    print("server is started.....")
