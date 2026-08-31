@@ -34,4 +34,3 @@ apartment = np.array([[2000,3]])
 
 predicted_price = model.predict(apartment)
 print("apartment's price prediction = ",predicted_price)
-
