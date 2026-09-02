@@ -26,6 +26,8 @@ Exercise 4: Estimating Daily Ice Cream SalesScenario: An ice cream parlor owner 
 
 Exercise 5: Software Developer Salary PredictionScenario: A tech recruitment platform wants to build a pricing model to estimate fair market salaries for software engineers.Input Features ($X$):$X_1$: Years of professional coding experience$X_2$: Number of specialized technical certifications earnedTarget Variable ($Y$): Annual salary (in thousands of dollars)Practice Goal: Evaluate how much value a certification adds to a developer's salary compared to an extra year of experience.
 
+K-Mean algorithm
+----------------------------------------------------
  1 ECommerce  Retail Customer Segmentation
 
 Features 3
