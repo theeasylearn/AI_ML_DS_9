@@ -62,14 +62,9 @@ plt.plot(range(1,7),inertia)
 plt.xlabel("no of clusters")
 plt.ylabel("inertia")
 plt.show()
-
 #actually model train 
 model = KMeans(n_clusters=3,random_state=42,n_init=1)
 model.fit(x_scaled)
-
 #add clusters into training_df 
 df['cluster'] = model.labels_
-
 print(df)
-
-

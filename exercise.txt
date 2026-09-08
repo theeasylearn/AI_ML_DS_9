@@ -115,9 +115,7 @@ Clusters k  4
 
  Cluster 4  Budget Areas Low property prices far from transport and lower school ratings
 
-
-
- 5 Agriculture Soil Fertility Grouping
+5 Agriculture Soil Fertility Grouping
 
 Features 4
 
