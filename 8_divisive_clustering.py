@@ -100,16 +100,41 @@ def divisive_clustering(country,x_scaled,no_of_clusters):
     clusters = {
            0: list(range(len(countries))),
         }
-    # print(clusters)
     next_cluster_id = 1
-    #findout key with largest size list 
-    max_cluster_id = max(clusters,key= lambda cluster_id : len(clusters[cluster_id]))
-
-    #now get indexes 
-    indexes = clusters[max_cluster_id]
-    #get data
-    training_data = x_scaled[indexes]
-    print(training_data)
+    # print(clusters)
+    while len(clusters)<no_of_clusters:
+        #findout key with largest size list 
+        max_cluster_id = max(clusters,key= lambda cluster_id : len(clusters[cluster_id]))
     
+        #now get indexes 
+        indexes = clusters[max_cluster_id]
+        # print(indexes)
+        #get data
+        training_data = x_scaled[indexes]
+        # print(training_data)
+        model = KMeans(n_clusters=2,random_state=42,n_init=10)
+        model.fit(training_data)
+        labels = model.labels_
+        list_1 = []
+        list_2 = []
+        for label,index in zip(labels,indexes):
+            if label == 0:
+                list_1.append(index)
+            else:
+                list_2.append(index)
+        del clusters[max_cluster_id]
+        clusters[next_cluster_id] = list_1
+        next_cluster_id=next_cluster_id + 1 # 2
+        clusters[next_cluster_id] = list_2
+        next_cluster_id=next_cluster_id + 1
+    return clusters
 countries = df["Country"].tolist()
-divisive_clustering(countries,x_scaled,4)
+clusters = divisive_clustering(countries,x_scaled,4)
+print(clusters)
+for cluster in clusters.items():
+    cluster_id = cluster[0]
+    for index in cluster[1]:
+        # print(index)
+        df.loc[index,'clusters'] = cluster_id
+print(df)
+#we have clusters original dataframe 
