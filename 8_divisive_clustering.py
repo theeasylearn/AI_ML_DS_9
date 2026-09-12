@@ -138,3 +138,4 @@ for cluster in clusters.items():
         df.loc[index,'clusters'] = cluster_id
 print(df)
 #we have clusters original dataframe 
+#display dataframe using cluster chart
