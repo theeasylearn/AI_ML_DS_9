@@ -23,42 +23,34 @@ X = digits.data
 y = digits.target
 
 print("Dataset shape:", X.shape)
-print("Number of features:", X.shape[1])
-
+print("Number of features:", X.shape[1]) # 64
 
 # ---------------------------------------------------------
 # STEP 2: Standardize the data
 # ---------------------------------------------------------
-
 # Standardization puts features on a similar scale
 scaler = StandardScaler()
 
 X_scaled = scaler.fit_transform(X)
-
-
+print(X_scaled)
+# exit(0)
 # ---------------------------------------------------------
 # STEP 3: Apply t-SNE
 # ---------------------------------------------------------
-
 # Create the t-SNE model
 tsne = TSNE(
     n_components=2,       # Convert data into 2 dimensions
     perplexity=30,        # Number related to neighborhood size
     random_state=42       # Gives reproducible results
 )
-
 # Transform 64-dimensional data into 2 dimensions
-X_tsne = tsne.fit_transform(X)
-
+X_tsne = tsne.fit_transform(X_scaled)
 print("t-SNE output shape:", X_tsne.shape)
-
-
+# exit(0)
 # ---------------------------------------------------------
 # STEP 4: Visualize the result
 # ---------------------------------------------------------
-
 plt.figure(figsize=(10, 7))
-
 # Create a scatter plot
 # c=y means points are colored according to their digit
 scatter = plt.scatter(
