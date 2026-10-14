@@ -29,7 +29,7 @@ print("Dataset Shape:", X.shape)
 print("\nTarget Mapping:")
 for i,name in enumerate(breast_cancer.target_names):
     print(i,"=",name)
-exit(1)
+# exit(1)
 # ============================================================
 # 2. Train-Test Split
 # ============================================================
@@ -45,25 +45,16 @@ X_test_scaled = scaler.transform(X_test)
 # ============================================================
 # 4. Create KNN Model
 # ============================================================
-knn = KNeighborsClassifier(
-    n_neighbors=5
-)
-knn.fit(
-    X_train_scaled,
-    y_train
-)
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train_scaled,y_train)
 # ============================================================
 # 5. Prediction
 # ============================================================
-
 y_pred = knn.predict(X_test_scaled)
 # ============================================================
 # 6. Accuracy
 # ============================================================
-accuracy = accuracy_score(
-    y_test,
-    y_pred
-)
+accuracy = accuracy_score(y_test,y_pred)
 # ============================================================
 # 7. Convert Target
 # ============================================================
@@ -78,10 +69,7 @@ y_pred_medical = (y_pred == 0).astype(int)
 # ============================================================
 # 8. Confusion Matrix
 # ============================================================
-cm = confusion_matrix(
-    y_test_medical,
-    y_pred_medical
-)
+cm = confusion_matrix(y_test_medical,y_pred_medical)
 TN, FP, FN, TP = cm.ravel()
 # ============================================================
 # 9. Precision
